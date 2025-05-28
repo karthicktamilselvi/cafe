@@ -1,0 +1,13 @@
+body{
+  margin: 0;
+  background: linear-gradient(to bottom, #4facfe, #711414);
+}
+.loginFormBanner{
+  background-color: #913133;
+}
+.login-text{
+  color: #d5d5d4;
+}
+.login-btn{
+  background-color: #ff7411;
+}
