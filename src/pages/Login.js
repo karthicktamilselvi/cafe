@@ -21,7 +21,7 @@ const Login = () => {
        <div className="flex items-center justify-center min-h-screen  px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-sm loginFormBanner rounded-md p-5 space-y-8">
             <div>
-              <h2 className="mt-6 text-center text-2xl font-bold tracking-tight login-text">
+              <h2 className="mt-6 text-center text-2xl font-bold underline tracking-tight login-text">
                 Heritage Cafe
               </h2>
             </div>
