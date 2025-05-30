@@ -2,8 +2,9 @@ import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
   palette: {
-    primary: { main: '#021f3f', contrastText: '#FFFFFF' },
-    secondary: { main: '#FF6B6B', contrastText: '#FFFFFF' }
+    primary: { main: '#00ffe6', contrastText: '#000' },
+    secondary: { main: '#021f3f', contrastText: '#FFFFFF' },
+    
   },
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
@@ -30,28 +31,13 @@ export const theme = createTheme({
           borderRadius: 4, // Adjust border radius as needed
           textTransform: 'none',
           fontSize: '12px',
-          padding: '2px 8px',
+          fontWeight:'bold',
           border: '1px solid transparent', // Default transparent border
           '&:hover': {
             border: '1px solid currentColor' // Border on hover
           }
         },
-        // Contained button styles
-        contained: {
-          boxShadow: 'none',
-          '&:hover': {
-            boxShadow: 'none',
-            border: '1px solid currentColor'
-          }
-        },
-        // Outlined button styles
-        outlined: {
-          border: '1px solid currentColor', // Always show border for outlined
-          '&:hover': {
-            border: '1px solid currentColor',
-            backgroundColor: 'rgba(0, 0, 0, 0.04)'
-          }
-        },
+      
         // Text button styles
         text: {
           '&:hover': {
@@ -59,32 +45,34 @@ export const theme = createTheme({
           }
         }
       },
-      variants: [
-        {
-          props: { variant: 'navbar-signUp' },
-          style: {
-            backgroundColor: '#00ffe6',
-            color: '#021f3f',
-            border: '1px solid #00ffe6',
-            '&:hover': {
-              backgroundColor: '#00e6cc',
-              border: '1px solid #00e6cc'
-            }
-          }
-        },
-        {
-          props: { variant: 'navbar-login' },
-          style: {
-            backgroundColor: '#021f3f',
-            color: '#fff',
-            border: '1px solid #021f3f',
-            '&:hover': {
-              backgroundColor: '#01152b',
-              border: '1px solid #01152b'
-            }
-          }
-        }
-      ]
+      // variants: [
+      //   {
+      //     props: { variant: 'navbar-signUp' },
+      //     style: {
+      //       backgroundColor: '#00ffe6',
+      //       color: '#021f3f',
+      //       padding: '2px 8px',
+      //       border: '1px solid #00ffe6',
+      //       '&:hover': {
+      //         backgroundColor: '#00e6cc',
+      //         border: '1px solid #00e6cc'
+      //       }
+      //     }
+      //   },
+      //   {
+      //     props: { variant: 'navbar-login' },
+      //     style: {
+      //       backgroundColor: '#021f3f',
+      //       padding: '2px 8px',
+      //       color: '#fff',
+      //       border: '1px solid #fff',
+      //       '&:hover': {
+      //         backgroundColor: '#cdc6c6',
+      //         border: '1px solid #01152b'
+      //       }
+      //     }
+      //   }
+      // ]
     }
   }
 });
