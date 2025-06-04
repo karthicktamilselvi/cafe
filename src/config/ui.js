@@ -45,34 +45,43 @@ export const theme = createTheme({
           }
         }
       },
-      // variants: [
-      //   {
-      //     props: { variant: 'navbar-signUp' },
-      //     style: {
-      //       backgroundColor: '#00ffe6',
-      //       color: '#021f3f',
-      //       padding: '2px 8px',
-      //       border: '1px solid #00ffe6',
-      //       '&:hover': {
-      //         backgroundColor: '#00e6cc',
-      //         border: '1px solid #00e6cc'
-      //       }
-      //     }
-      //   },
-      //   {
-      //     props: { variant: 'navbar-login' },
-      //     style: {
-      //       backgroundColor: '#021f3f',
-      //       padding: '2px 8px',
-      //       color: '#fff',
-      //       border: '1px solid #fff',
-      //       '&:hover': {
-      //         backgroundColor: '#cdc6c6',
-      //         border: '1px solid #01152b'
-      //       }
-      //     }
-      //   }
-      // ]
+      variants: [
+        {
+          props: { variant: 'navbar-deposit' },
+          style: {
+            backgroundColor: '#00ffe6',
+            color: '#021f3f',
+            padding: '1px 18px',
+            fontSize:{
+              xs:'12px',
+              md:'10px'
+            },
+            border: '1px solid #00ffe6',
+            '&:hover': {
+              backgroundColor: '#00e6cc',
+              border: '1px solid #00e6cc'
+            }
+          }
+        },
+        {
+          props: { variant: 'navbar-withdraw' },
+          style: {
+            backgroundColor: '#021f3f',
+            padding: '1px 18px',
+            color: '#fff',
+            fontSize:{
+              xs:'12px',
+              md:'10px'
+            },
+            border: '1px solid #fff',
+                  '&:hover': {
+                    backgroundColor: '#edeeee', // Replace with your desired hover color
+                    color: '#000',       // Replace if you want to change text color on hover
+                  }
+
+          }
+        }
+      ]
     }
   }
 });
