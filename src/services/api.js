@@ -1,4 +1,3 @@
-// src/services/api.js
 import axios from 'axios';
 
 // Create a custom axios instance with default config
@@ -7,7 +6,6 @@ const api = axios.create({
   timeout: 10000, // 10 seconds
   headers: {
     'Content-Type': 'application/json',
-    // You can add other default headers here
   },
 });
 
@@ -15,7 +13,7 @@ const api = axios.create({
 api.interceptors.request.use(
   async (config) => {
     // You can modify the request config here (e.g., add auth token)
-    const token = localStorage.getItem('accessToken');
+    const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -28,12 +26,9 @@ api.interceptors.request.use(
 
 // Response interceptor for API calls
 api.interceptors.response.use(
-  (response) => response.data, // Simply return the data from the response
+  (response) => response.data,
   (error) => {
-    // Handle errors globally
     if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
       console.error('API Error:', error.response.status, error.response.data);
       
       // Handle specific status codes
