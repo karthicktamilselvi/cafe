@@ -72,7 +72,7 @@ import { useAuth } from '../context/AuthContext';
 const Login = () => {
   const theme = useTheme();
   const navigate = useNavigate();
-  // const { login } = useAuth();
+    const { checkAuth } = useAuth();
   const location = useLocation();
 
   const {register,handleSubmit,formState :{errors}} = useForm()
@@ -93,6 +93,7 @@ const Login = () => {
       console.log('Login successful', response);
       if(response?.status === 1){
         localStorage.setItem("token",response.data.token);
+        checkAuth()
         const from = location.state?.from?.pathname || '/';
         navigate(from, { replace: true });
       
@@ -106,43 +107,7 @@ const Login = () => {
   };
 
 
-  // const clickEvent = async() =>{
-  //   let browserprint =   btoa('v2.5.28.1'+Date.now()+Math.floor(Math.random() * 10000));
-
-  //   let postData ={
-  //     org: "zettotest",
-  //     pwd: "Test@123",
-  //     type: "player",
-  //     username: "best",
-  //     browserprint : browserprint
-  //   }
-  //   try {
-  //     const response = await AuthService.login(postData);
-  //     console.log('Login successful', response.data.token);
-  //     if(response?.status === 1){
-  //       localStorage.setItem("token",response.data.token);
-
-  //       // const fakeToken = response.data.token;
-  //       // login(fakeToken); // Save token & update auth state
-        
-  //       // Redirect back to the intended page (or home)
-  //       const from = location.state?.from?.pathname || '/';
-  //       navigate(from, { replace: true });
-
-  //     }
-      
-  //     // Handle successful login (e.g., redirect)
-  //   } catch (err) {
-  //     // setError(err.response?.data?.message || 'Login failed');
-  //   } finally {
-  //     // setLoading(false);
-  //   }
-  // }
-
   return (
-    // <>
-    //   <Typography onClick={clickEvent} sx={{marginTop:'100px'}}>Login</Typography>
-    // </>
     <Box
       sx={{
         display: 'flex',

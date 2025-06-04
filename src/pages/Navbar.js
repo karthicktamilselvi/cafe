@@ -10,7 +10,9 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
-
+import zetto from '../images/zetto/logo/zetto.png';
+import user from '../images/zetto/icon/green-avatar.png';
+import speaker from '../images/zetto/icon/speaker_icon.png'
 
 import { useTheme } from '@mui/material/styles';
 
@@ -49,27 +51,30 @@ function Navbar() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 ,        position:"fixed"}}>
       <AppBar 
-        position="fixed"
         sx={{
           backgroundColor: theme.palette.secondary.main, // Using theme colors
-          color: theme.palette.secondary.contrastText
+          color: theme.palette.secondary.contrastText,
+          height:'70px',
+          display: 'flex',
+          justifyContent: 'center' // Vertically center the content
+
         }}
       >
         <Container maxWidth="full">
           <Toolbar disableGutters>
-            <Typography 
-              variant="h6" 
-              component="div" 
-              sx={{ 
-                flexGrow: 5,
-                color: theme.palette.primary.main
-              }}
-            >
-              Zetto
-            </Typography>
-
+            
+            <Box sx={{ flexGrow: 5 }}>
+                <Box 
+                    component="img"
+                    src={zetto}
+                    alt="logo"
+                    sx={{
+                        height: { xs: '28px', md: '36px' }
+                    }}
+                />
+            </Box>
             {token ? <>
             <Box sx={
                 { marginRight:{
@@ -83,21 +88,25 @@ function Navbar() {
               }
               >
               <Button variant='navbar-deposit'>Deposit</Button>
-              <Typography variant="body1" component="p">
+              <Typography variant="body1" component="p" sx={{ lineHeight:'13px'}}>
                 <Box component="span"
                  sx={{color:theme.palette.primary.main,
                   fontSize:{
                     xs:'12px',
                     md:'12px'
 
-                  } }}
+                  },
+                
+                }}
                   >(Bal:</Box>
                 <Box component="span" 
                 sx={{color:'white',
                   fontSize:{
                     xs:'12px',
                     md:'12px'
-                  }}}
+                  },
+
+                }}
 
                 >1000)</Box>
               </Typography>
@@ -113,7 +122,7 @@ function Navbar() {
                 alignItems: 'center', 
             }}>
               <Button variant="navbar-withdraw">Withdraw</Button> 
-              <Typography variant="body1" component="p">
+              <Typography variant="body1" component="p" sx={{ lineHeight:'13px'}}>
                 <Box component="span"
                  sx={{color:theme.palette.primary.main,
                   fontSize:{
@@ -137,7 +146,15 @@ function Navbar() {
             <Box sx={{ flexGrow: 0 }}  >
               <Tooltip title="Open settings">
 
-                <Typography onClick={handleOpenUserMenu}>hiii</Typography>
+
+                     <Box onClick={handleOpenUserMenu}
+                    component="img"
+                    src={user}
+                    alt="logo"
+                    sx={{
+                        height: { xs: '28px', md: '28px' }
+                    }}
+                />
                 {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                 </IconButton> */}
@@ -236,6 +253,60 @@ function Navbar() {
           </Toolbar>
         </Container>
       </AppBar>
+        <Box 
+    sx={{
+      position: 'fixed',
+      top: '70px', // Position right below the AppBar
+      width: '100%',
+      backgroundColor: 'gray',
+      color: theme.palette.primary.contrastText,
+      padding: '6px 0',
+      zIndex: theme.zIndex.drawer
+    }}
+  >
+    <Box sx={{display:'flex', alignItems:'center',  direction:'row',padding:'0px 10px',height:'20px'}}>
+      <Box 
+        component="img"
+        src={speaker}
+        alt="logo"
+        sx={{
+            height: { xs: '20px', md: '20px' }
+        }}
+    />
+      <Box sx={{width:'100%'}}>
+        <marquee behavior="scroll" direction="left">
+          {/* This is your scrolling marquee text. You can put any important announcements here. */}
+          <Box component="ul" sx={{ 
+            display: 'flex',
+            listStyle: 'none',
+            padding: 0,
+            margin: 0,
+            '& li': {
+              display: 'flex',
+              alignItems: 'center',
+              marginRight: '14px', // Slightly increased for better spacing
+              fontSize: '14px', // Smaller text size
+              '&::before': {
+                content: '"\\2022"', // Bullet point
+                color: theme.palette.primary.contrastText,
+                fontSize: '25px', // Larger bullet size
+                marginRight: '8px',
+                verticalAlign: 'middle' // Better alignment
+              }
+            }
+          }}>
+            <li>Important update coming soon</li>
+            <li>Maintenance scheduled for tomorrow</li>
+            <li>New features now available</li>
+            <li>Special promotion this week</li>
+          </Box>
+        </marquee>
+      </Box>
+
+    </Box>
+  </Box>
+{/* https://cms-api.dev.fastplay.in/public/marquee/list?org=zettotest */}
+
     </Box>
   );
 }
