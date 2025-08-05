@@ -89,9 +89,12 @@ const Login = () => {
       browserprint : browserprint
     }
     try {
+
+      console.log(AuthService.login)
       const response = await AuthService.login(postData);
       console.log('Login successful', response);
       if(response?.status === 1){
+        localStorage.setItem("login_data",response.data)
         localStorage.setItem("token",response.data.token);
         checkAuth()
         const from = location.state?.from?.pathname || '/';
@@ -100,7 +103,7 @@ const Login = () => {
       }
       // Handle successful login (e.g., redirect)
     } catch (err) {
-      // setError(err.response?.data?.message || 'Login failed');
+      console.log(err.response?.data?.message || 'Login failed');
     } finally {
       // setLoading(false);
     }
